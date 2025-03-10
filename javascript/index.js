@@ -90,6 +90,14 @@ btnLeftElement.addEventListener('click', () => {
     btnRightElement.classList.remove('split');
     btnRightElement.classList.add('reset');
     btnRightElement.textContent = 'RESET';
+
+    const splitsElement = document.getElementById("splits");
+    splitsElement.innerHTML=" "
+
+    minDecElement.innerHTML = 0;
+    minUniElement.innerHTML = 0;
+    secDecElement.textContent = 0;
+    secUniElement.textContent = 0;
   }
 });
 
