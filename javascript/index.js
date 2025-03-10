@@ -31,7 +31,6 @@ function printMinutes() {
 function printSeconds() {
   // ... your code goes here
   const seconds = chronometer.computeTwoDigitNumber(chronometer.getSeconds());
-  console.log(seconds)
   secDecElement.textContent = seconds[0];
   secUniElement.textContent = seconds[1];
 }
@@ -97,6 +96,18 @@ btnLeftElement.addEventListener('click', () => {
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
   // ... your code goes here
-  chronometer.reset();
+  if(btnRight.classList.contains('split'))
+    {
+      chronometer.split();
+      const newListItem = document.createElement("li");
+      newListItem.className = "list-item";
+      newListItem.innerHTML = chronometer.split();
+      const splitsElement = document.getElementById("splits");
+      splitsElement.appendChild(newListItem);
+    }else if(btnRightElement.classList.contains("reset"))
+      {
+        clearSplits(); 
+        chronometer.reset();
+      }
 
 });

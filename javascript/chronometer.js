@@ -8,8 +8,8 @@ class Chronometer {
   start(callback) {
     console.log("⏳ start() was called!");
     this.intervalID = setInterval(() => {
-      this.currentTime++;  // Incrementa el tiempo 1 segundo
-      if (callback) {
+      this.currentTime++;
+      if (callback) { // esto hace que se repita cada segundo la suma de segundos
         callback(); 
       }
       console.log(`🔢 currentTime: ${this.currentTime}`);
@@ -51,10 +51,9 @@ class Chronometer {
 
   split() {
     // ... your code goes here
-    const minutes = this.getMinutes();
-    const seconds = this.getMinutes();
-
-    return `${this.minutes}minutes and ${this.seconds} seconds.`
+    const minutes = this.computeTwoDigitNumber(this.getMinutes());
+    const seconds = this.computeTwoDigitNumber(this.getSeconds());
+    return `${minutes}:${seconds}`;
   }
 }
 
